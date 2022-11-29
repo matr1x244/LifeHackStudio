@@ -7,7 +7,10 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.lifehackstudio.R
 import com.example.lifehackstudio.databinding.FragmentMainCompanyBinding
+import com.example.lifehackstudio.domain.Controller
+import com.example.lifehackstudio.ui.detail.DetailFragment
 import com.example.lifehackstudio.ui.main.recycler.RecyclerViewAdapter
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -23,8 +26,11 @@ class MainFragment : Fragment(){
     private val viewModel: MainViewModel by viewModel()
 
     private val adapter = RecyclerViewAdapter {
-        Toast.makeText(requireActivity(), "clicker $it", Toast.LENGTH_SHORT).show()
+        controller.openSecondFragment(it)
+        Toast.makeText(requireActivity(), "clicker ${it.name}", Toast.LENGTH_SHORT).show()
     }
+
+    private val controller by lazy { activity as Controller }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

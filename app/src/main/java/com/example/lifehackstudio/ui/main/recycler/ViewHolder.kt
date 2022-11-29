@@ -12,7 +12,7 @@ import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
 import com.example.lifehackstudio.R
 import com.example.lifehackstudio.databinding.RecyclerItemListCompanyBinding
-import com.example.lifehackstudio.domain.model.data.DataCompanyItem
+import com.example.lifehackstudio.domain.model.data.DataCompanyListItem
 
 
 class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -26,7 +26,7 @@ class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         }
     }
 
-    fun bind(item: DataCompanyItem, listener: DataCompanyItem.() -> Unit) {
+    fun bind(item: DataCompanyListItem, listener: DataCompanyListItem.() -> Unit) {
         Glide.with(binding.ivImage)
             .load(item.img)
             .listener(object : RequestListener<Drawable> {

@@ -3,6 +3,7 @@ package com.example.lifehackstudio.domain
 import com.example.lifehackstudio.data.web.CompanyAPI
 import com.example.lifehackstudio.data.web.RetrofitRequestImpl
 import com.example.lifehackstudio.domain.model.RepositoryCompany
+import com.example.lifehackstudio.ui.detail.DetailViewModel
 import com.example.lifehackstudio.ui.main.MainViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
@@ -30,4 +31,5 @@ val appModuleKoin = module {
     factory<CallAdapter.Factory> { RxJava3CallAdapterFactory.create() }
 
     viewModel { MainViewModel(get()) }
+    viewModel { DetailViewModel(get())}
 }
