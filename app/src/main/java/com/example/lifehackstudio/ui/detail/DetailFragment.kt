@@ -43,8 +43,9 @@ class DetailFragment : Fragment() {
 
     private fun initViews() {
         detailArguments()
+        viewModel.onShowCompany(detailArguments()?.id)
 //        binding.tvId.text = detailArguments()?.id
-//        binding.tvName.text = detailArguments()?.name
+        binding.tvName.text = detailArguments()?.name
     }
 
     private fun detailArguments(): DataCompanyListItem? {
@@ -54,7 +55,6 @@ class DetailFragment : Fragment() {
     private fun initIncomingEvents() {
         Toast.makeText(requireActivity(), "initIncomingEvents() DETAIL", Toast.LENGTH_SHORT).show()
         viewModel.repos.observe(viewLifecycleOwner) {
-            viewModel.onShowCompany(it.id)
             binding.tvDescription.text = it.description
         }
     }
