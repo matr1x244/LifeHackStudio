@@ -8,7 +8,5 @@ data class DataCompanyDetailItem(
     val id: String?,
     val img: String?,
     val name: String?,
-    val description: String?,
-//    val phone: String?,
-//    val www: String?
-): Parcelable
+    val description: String?
+) : Parcelable

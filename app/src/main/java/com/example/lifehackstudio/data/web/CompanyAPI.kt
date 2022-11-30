@@ -2,9 +2,7 @@ package com.example.lifehackstudio.data.web
 
 import com.example.lifehackstudio.domain.model.data.DataCompanyListItem
 import com.example.lifehackstudio.domain.model.data.detail.DataCompanyDetailItem
-import retrofit2.Call
 import retrofit2.http.GET
-import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface CompanyAPI {
@@ -15,6 +13,6 @@ interface CompanyAPI {
     @GET("test.php") //https://lifehack.studio/test_task/test.php?id=1
     suspend fun detailCompany(
         @Query("id") id: String?
-    ): Call<DataCompanyDetailItem>
+    ): List<DataCompanyDetailItem>
 
 }

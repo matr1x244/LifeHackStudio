@@ -31,5 +31,5 @@ val appModuleKoin = module {
     factory<CallAdapter.Factory> { RxJava3CallAdapterFactory.create() }
 
     viewModel { MainViewModel(get()) }
-    viewModel { DetailViewModel(get())}
+    viewModel { DetailViewModel(get()) }
 }

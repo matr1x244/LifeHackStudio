@@ -8,4 +8,4 @@ data class DataCompanyListItem(
     val id: String?,
     val img: String?,
     val name: String?
-): Parcelable
+) : Parcelable

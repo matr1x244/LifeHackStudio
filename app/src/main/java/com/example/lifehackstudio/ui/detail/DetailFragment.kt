@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.lifehackstudio.databinding.FragmentDetailCompanyBinding
 import com.example.lifehackstudio.domain.model.data.DataCompanyListItem
@@ -40,12 +39,9 @@ class DetailFragment : Fragment() {
         initIncomingEvents()
     }
 
-
     private fun initViews() {
         detailArguments()
         viewModel.onShowCompany(detailArguments()?.id)
-//        binding.tvId.text = detailArguments()?.id
-        binding.tvName.text = detailArguments()?.name
     }
 
     private fun detailArguments(): DataCompanyListItem? {
@@ -53,9 +49,10 @@ class DetailFragment : Fragment() {
     }
 
     private fun initIncomingEvents() {
-        Toast.makeText(requireActivity(), "initIncomingEvents() DETAIL", Toast.LENGTH_SHORT).show()
         viewModel.repos.observe(viewLifecycleOwner) {
-            binding.tvDescription.text = it.description
+            binding.tvId.text = it[0].id
+            binding.tvName.text = it[0].name
+            binding.tvDescription.text = it[0].description
         }
     }
 
